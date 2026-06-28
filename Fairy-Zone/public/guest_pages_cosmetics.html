@@ -1,0 +1,288 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.pages-nav{display:flex;flex-wrap:wrap;gap:8px;padding:1rem 0 1.5rem}
+.page-btn{padding:6px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-secondary);font-size:13px;cursor:pointer;transition:all .15s}
+.page-btn.active{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
+.mockup{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;background:var(--color-background-secondary)}
+.nav-bar{background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.nav-links{display:flex;gap:16px;font-size:12px;color:var(--color-text-secondary)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-icon{width:28px;height:28px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary)}
+.page-content{padding:16px}
+.hero{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:28px 20px;text-align:center;margin-bottom:16px;border:0.5px solid var(--color-border-tertiary)}
+.hero-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.hero-sub{font-size:13px;color:var(--color-text-secondary);margin-bottom:14px}
+.btn-primary{display:inline-block;padding:7px 20px;background:var(--color-text-primary);color:var(--color-background-primary);border-radius:var(--border-radius-md);font-size:13px;font-weight:500;cursor:pointer}
+.section-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:10px}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.product-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.product-img{height:70px;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;color:var(--color-text-tertiary)}
+.product-info{padding:8px}
+.product-name{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.product-price{font-size:12px;color:var(--color-text-secondary)}
+.cats-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.cat-pill{padding:5px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:20px;font-size:12px;color:var(--color-text-secondary);background:var(--color-background-primary)}
+.cat-pill.active{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.filter-sort{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.sort-select{font-size:12px;padding:4px 8px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-secondary)}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.detail-img{height:140px;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);display:flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);border:0.5px solid var(--color-border-tertiary)}
+.detail-name{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.detail-price{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px}
+.detail-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:12px}
+.qty-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.qty-btn{width:26px;height:26px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary)}
+.qty-val{font-size:14px;font-weight:500;min-width:20px;text-align:center;color:var(--color-text-primary)}
+.add-cart-btn{width:100%;padding:9px;background:var(--color-text-primary);color:var(--color-background-primary);border-radius:var(--border-radius-md);font-size:13px;font-weight:500;text-align:center;cursor:pointer}
+.tabs-row{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:12px}
+.tab{padding:7px 14px;font-size:12px;color:var(--color-text-secondary);cursor:pointer;border-bottom:2px solid transparent}
+.tab.active{color:var(--color-text-primary);font-weight:500;border-bottom:2px solid var(--color-text-primary)}
+.review-item{padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.stars{color:#BA7517;font-size:12px;margin-bottom:3px}
+.review-text{font-size:12px;color:var(--color-text-secondary)}
+.cart-item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.cart-img{width:50px;height:50px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--color-text-tertiary);border:0.5px solid var(--color-border-tertiary)}
+.cart-details{flex:1}
+.cart-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.cart-price{font-size:12px;color:var(--color-text-secondary)}
+.cart-summary{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin-top:12px}
+.summary-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--color-text-secondary)}
+.summary-total{display:flex;justify-content:space-between;font-size:15px;font-weight:500;color:var(--color-text-primary);padding:8px 0 0;border-top:0.5px solid var(--color-border-tertiary);margin-top:4px}
+.checkout-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.form-group{margin-bottom:10px}
+.form-label{font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;display:block}
+.form-input{width:100%;padding:7px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:13px;background:var(--color-background-primary);color:var(--color-text-primary)}
+.radio-group{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.radio-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-primary);cursor:pointer}
+.radio-item.selected{border-color:var(--color-border-primary);background:var(--color-background-secondary)}
+.success-box{text-align:center;padding:24px 16px}
+.success-icon{width:56px;height:56px;border-radius:50%;background:var(--color-background-success);border:0.5px solid var(--color-border-success);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--color-text-success)}
+.order-card{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0;text-align:left}
+.order-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;color:var(--color-text-secondary)}
+.order-val{color:var(--color-text-primary);font-weight:500}
+</style>
+
+<h2 class="sr-only">معاينة صفحات الـ Guest في متجر Cosmetics</h2>
+
+<div class="pages-nav">
+  <button class="page-btn active" onclick="show('home',this)">Home</button>
+  <button class="page-btn" onclick="show('products',this)">Products</button>
+  <button class="page-btn" onclick="show('detail',this)">Product detail</button>
+  <button class="page-btn" onclick="show('cart',this)">Cart</button>
+  <button class="page-btn" onclick="show('checkout',this)">Checkout</button>
+  <button class="page-btn" onclick="show('confirm',this)">Confirmation</button>
+</div>
+
+<div class="mockup" id="home">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+    <div class="nav-links"><span>Skincare</span><span>Makeup</span><span>Offers</span></div>
+    <div class="nav-actions">
+      <div class="nav-icon"><i class="ti ti-search" style="font-size:14px" aria-hidden="true"></i></div>
+      <div class="nav-icon"><i class="ti ti-shopping-cart" style="font-size:14px" aria-hidden="true"></i></div>
+      <div class="nav-icon"><i class="ti ti-user" style="font-size:14px" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="hero">
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px">New arrivals</div>
+      <div class="hero-title">Your daily glow routine</div>
+      <div class="hero-sub">Natural skincare & makeup, delivered to your door</div>
+      <div class="btn-primary">Shop now</div>
+    </div>
+    <div class="cats-row">
+      <div class="cat-pill active">All</div>
+      <div class="cat-pill">Skincare</div>
+      <div class="cat-pill">Makeup</div>
+      <div class="cat-pill">Serums</div>
+      <div class="cat-pill">SPF</div>
+    </div>
+    <div class="section-title">Featured products</div>
+    <div class="products-grid">
+      <div class="product-card"><div class="product-img"><i class="ti ti-droplet" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Vitamin C Serum</div><div class="product-price">EGP 450</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-sun" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">SPF 50 Sunscreen</div><div class="product-price">EGP 280</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-sparkles" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Glow Moisturizer</div><div class="product-price">EGP 320</div></div></div>
+    </div>
+    <button onclick="sendPrompt('اشرح لي كيف أبني الـ Home page في Laravel Blade مع الـ Hero section والمنتجات المميزة')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%">كيف أبني هذه الصفحة في Laravel ↗</button>
+  </div>
+</div>
+
+<div class="mockup" id="products" style="display:none">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+    <div class="nav-links"><span>Skincare</span><span>Makeup</span><span>Offers</span></div>
+    <div class="nav-actions">
+      <div class="nav-icon"><i class="ti ti-search" style="font-size:14px" aria-hidden="true"></i></div>
+      <div class="nav-icon"><i class="ti ti-shopping-cart" style="font-size:14px" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="cats-row">
+      <div class="cat-pill active">All</div>
+      <div class="cat-pill">Skincare</div>
+      <div class="cat-pill">Makeup</div>
+      <div class="cat-pill">Serums</div>
+    </div>
+    <div class="filter-sort">
+      <span style="font-size:12px;color:var(--color-text-secondary)">24 products</span>
+      <select class="sort-select"><option>Price: low to high</option><option>Price: high to low</option><option>Newest</option></select>
+    </div>
+    <div class="products-grid">
+      <div class="product-card"><div class="product-img"><i class="ti ti-droplet" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Vitamin C Serum</div><div class="product-price">EGP 450</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-sun" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">SPF 50 Sunscreen</div><div class="product-price">EGP 280</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-sparkles" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Glow Moisturizer</div><div class="product-price">EGP 320</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-heart" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Rose Face Toner</div><div class="product-price">EGP 190</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-moon" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Night Repair Cream</div><div class="product-price">EGP 560</div></div></div>
+      <div class="product-card"><div class="product-img"><i class="ti ti-leaf" style="font-size:22px" aria-hidden="true"></i></div><div class="product-info"><div class="product-name">Aloe Vera Gel</div><div class="product-price">EGP 150</div></div></div>
+    </div>
+    <button onclick="sendPrompt('كيف أبني Products page في Laravel مع الـ filter بالـ category والـ sort؟')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%">كيف أبني الفلترة والـ sort في Laravel ↗</button>
+  </div>
+</div>
+
+<div class="mockup" id="detail" style="display:none">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+    <div class="nav-actions">
+      <div class="nav-icon"><i class="ti ti-search" style="font-size:14px" aria-hidden="true"></i></div>
+      <div class="nav-icon"><i class="ti ti-shopping-cart" style="font-size:14px" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:10px">Home / Skincare / Vitamin C Serum</div>
+    <div class="detail-layout">
+      <div class="detail-img"><i class="ti ti-droplet" style="font-size:36px" aria-hidden="true"></i></div>
+      <div>
+        <div class="detail-name">Vitamin C Serum</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:6px">Skincare</div>
+        <div class="detail-price">EGP 450</div>
+        <div class="detail-desc">Brightening serum with 20% Vitamin C. Reduces dark spots and evens skin tone.</div>
+        <div class="qty-row">
+          <div class="qty-btn">-</div>
+          <div class="qty-val">1</div>
+          <div class="qty-btn">+</div>
+        </div>
+        <div class="add-cart-btn">Add to cart</div>
+      </div>
+    </div>
+    <div class="tabs-row">
+      <div class="tab active">Description</div>
+      <div class="tab">How to use</div>
+      <div class="tab">Reviews (12)</div>
+    </div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:12px">Formulated with L-Ascorbic Acid 20%, Vitamin E and Ferulic Acid. Suitable for all skin types. Paraben-free and dermatologist tested.</div>
+    <div class="review-item"><div class="stars">★★★★★</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px">Sara M.</div><div class="review-text">Amazing product, noticed a difference after 2 weeks!</div></div>
+    <div style="height:8px"></div>
+    <button onclick="sendPrompt('كيف أبني Product detail page في Laravel مع Cart بالـ Session؟')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%;margin-top:8px">كيف أربط الـ Add to cart بالـ Session ↗</button>
+  </div>
+</div>
+
+<div class="mockup" id="cart" style="display:none">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+    <div class="nav-actions">
+      <div class="nav-icon"><i class="ti ti-shopping-cart" style="font-size:14px" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div style="font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:12px">Your cart (2 items)</div>
+    <div class="cart-item">
+      <div class="cart-img"><i class="ti ti-droplet" style="font-size:20px" aria-hidden="true"></i></div>
+      <div class="cart-details">
+        <div class="cart-name">Vitamin C Serum</div>
+        <div class="cart-price">EGP 450 × 1</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="qty-btn">-</div><div class="qty-val">1</div><div class="qty-btn">+</div>
+        <div style="color:var(--color-text-tertiary);cursor:pointer"><i class="ti ti-trash" style="font-size:14px" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <div class="cart-img"><i class="ti ti-sun" style="font-size:20px" aria-hidden="true"></i></div>
+      <div class="cart-details">
+        <div class="cart-name">SPF 50 Sunscreen</div>
+        <div class="cart-price">EGP 280 × 2</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="qty-btn">-</div><div class="qty-val">2</div><div class="qty-btn">+</div>
+        <div style="color:var(--color-text-tertiary);cursor:pointer"><i class="ti ti-trash" style="font-size:14px" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>Subtotal</span><span class="order-val">EGP 1,010</span></div>
+      <div class="summary-row"><span>Shipping</span><span class="order-val">EGP 50</span></div>
+      <div class="summary-total"><span>Total</span><span>EGP 1,060</span></div>
+    </div>
+    <div class="add-cart-btn" style="margin-top:12px">Proceed to checkout</div>
+    <button onclick="sendPrompt('كيف أبني Cart بالـ Session في Laravel بدون Database؟')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%;margin-top:8px">كيف أبني Cart بالـ Session في Laravel ↗</button>
+  </div>
+</div>
+
+<div class="mockup" id="checkout" style="display:none">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+  </div>
+  <div class="page-content">
+    <div style="font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:14px">Checkout</div>
+    <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px">Delivery info</div>
+    <div class="checkout-grid">
+      <div class="form-group"><label class="form-label">Full name</label><input class="form-input" value="Sara Mohamed" readonly></div>
+      <div class="form-group"><label class="form-label">Phone</label><input class="form-input" value="01012345678" readonly></div>
+    </div>
+    <div class="form-group"><label class="form-label">Address</label><input class="form-input" value="15 Tahrir St, Cairo" readonly></div>
+    <div class="checkout-grid">
+      <div class="form-group"><label class="form-label">City</label><input class="form-input" value="Cairo" readonly></div>
+      <div class="form-group"><label class="form-label">Governorate</label><input class="form-input" value="Cairo" readonly></div>
+    </div>
+    <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px">Payment method</div>
+    <div class="radio-group">
+      <div class="radio-item selected"><i class="ti ti-cash" style="font-size:16px" aria-hidden="true"></i> Cash on delivery</div>
+      <div class="radio-item"><i class="ti ti-credit-card" style="font-size:16px" aria-hidden="true"></i> Online payment (Paymob)</div>
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>Subtotal</span><span class="order-val">EGP 1,010</span></div>
+      <div class="summary-row"><span>Shipping</span><span class="order-val">EGP 50</span></div>
+      <div class="summary-total"><span>Total</span><span>EGP 1,060</span></div>
+    </div>
+    <div class="add-cart-btn" style="margin-top:12px">Place order</div>
+    <button onclick="sendPrompt('كيف أبني Checkout في Laravel مع Cash on Delivery وحفظ الطلب في الـ Database؟')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%;margin-top:8px">كيف أبني Checkout وأحفظ الـ Order ↗</button>
+  </div>
+</div>
+
+<div class="mockup" id="confirm" style="display:none">
+  <div class="nav-bar">
+    <span class="nav-logo">Glowly</span>
+  </div>
+  <div class="page-content">
+    <div class="success-box">
+      <div class="success-icon"><i class="ti ti-check" style="font-size:26px" aria-hidden="true"></i></div>
+      <div style="font-size:17px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px">Order placed!</div>
+      <div style="font-size:13px;color:var(--color-text-secondary)">We'll contact you to confirm delivery</div>
+    </div>
+    <div class="order-card">
+      <div class="order-row"><span>Order #</span><span class="order-val">#ORD-20241</span></div>
+      <div class="order-row"><span>Date</span><span class="order-val">18 May 2026</span></div>
+      <div class="order-row"><span>Status</span><span style="color:var(--color-text-warning);font-weight:500">Pending</span></div>
+      <div class="order-row"><span>Payment</span><span class="order-val">Cash on delivery</span></div>
+      <div class="order-row"><span>Total</span><span class="order-val">EGP 1,060</span></div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin-bottom:12px">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px">Items ordered</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);display:flex;justify-content:space-between;padding:3px 0"><span>Vitamin C Serum × 1</span><span>EGP 450</span></div>
+      <div style="font-size:12px;color:var(--color-text-secondary);display:flex;justify-content:space-between;padding:3px 0"><span>SPF 50 Sunscreen × 2</span><span>EGP 560</span></div>
+    </div>
+    <div class="add-cart-btn">Continue shopping</div>
+    <button onclick="sendPrompt('كيف أبني Order confirmation page في Laravel وأرسل email للعميل؟')" style="font-size:13px;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;width:100%;margin-top:8px">كيف أرسل email تأكيد بعد الطلب ↗</button>
+  </div>
+</div>
+
+<script>
+function show(id, btn) {
+  ['home','products','detail','cart','checkout','confirm'].forEach(p => {
+    document.getElementById(p).style.display = p === id ? 'block' : 'none';
+  });
+  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>

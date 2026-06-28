@@ -1,0 +1,29 @@
+**General Goals**:-
+
+- create laravel project and --breeze (Blade stack)
+- Migrations:
+  users
+  categories →
+  products →
+  product_images →
+  addresses →
+  orders →
+  order_items
+- Admin middleware + route group
+- CRUD للمنتجات والأقسام (Admin)
+- صفحات العميل: Home، Products، Product detail، Cart، Checkout
+- Order flow: تأكيد الطلب + تغيير الـ status من Admin
+- Payment: ابدأ بـ Cash on Delivery، أضف Paymob لاحقاً
+
+**libararies that we well use**
+-laravel packages ( Boost, )
+-filament
+-Mcamara translates
+-astratomic
+-filament astratomic
+
+**First Step**
+1- create laravel and filament and boost and
+2- make DB Migration TABLES ( - USER 'ADMIN , MASTER, USER' - User_adresses - Products - Categories - Product_categories - product_images - orders - order_items
+)
+3- PINDING
