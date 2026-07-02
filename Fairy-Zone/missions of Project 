@@ -24,6 +24,12 @@
 
 **First Step**
 1- create laravel and filament and boost and
-2- make DB Migration TABLES ( - USER 'ADMIN , MASTER, USER' - User_adresses - Products - Categories - Product_categories - product_images - orders - order_items
+2- make DB Migration TABLES (
+USER 'ADMIN , MASTER, USER' -
+User_adresses - Products - Categories - Product_categories <<in large sites like amazon>> - product_images - orders - order_items
 )
-3- PINDING
+3- make relations and Models for all tables
+
+4- create Filament resources
+
+5- ceate lisetner and event and request for home page and other pages

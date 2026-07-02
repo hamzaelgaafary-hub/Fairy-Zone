@@ -10,9 +10,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Filament\Panel;
 
-#[Fillable(['name', 'email', 'role', 'password'])]
+#[Fillable(['name', 'email', 'phone', 'role', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 
 class User extends Authenticatable implements FilamentUser
@@ -35,6 +38,26 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
+
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
+    }
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+    
+    public function defaultAddress(): HasOne
+    {
+        return $this->hasOne(UserAddress::class)
+                    ->where('is_default', true);
+    }
 
     public function canAccessPanel(Panel $panel): bool
     {

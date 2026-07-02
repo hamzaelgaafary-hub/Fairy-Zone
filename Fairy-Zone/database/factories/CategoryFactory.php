@@ -6,7 +6,7 @@ use App\Models\category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<category>
+ * @extends Factory<Category>
  */
 class CategoryFactory extends Factory
 {
@@ -18,7 +18,10 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'slug' => $this->faker->slug(),
+            'image' => $this->faker->imageUrl(),
+            'is_active' => $this->faker->boolean(),
         ];
     }
 }

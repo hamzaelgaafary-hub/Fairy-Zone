@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\OrderItem;
+use App\Models\UserAddress;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +26,6 @@ class DatabaseSeeder extends Seeder
             'phone' => '1234567890',
             'email' => 'master@master.com',
             'password' => Hash::make('123456789'), // احرص على كتابة كلمة مرور قوية
-
         ]);
         User::factory()->create([
         'name' => 'Admin',
@@ -40,5 +41,11 @@ class DatabaseSeeder extends Seeder
         'email' => 'user@user.com',
         'password' => Hash::make('123456789'), // احرص على كتابة كلمة مرور قوية
         ]);
+
+
+        OrderItem::factory(10)->create();
+        UserAddress::factory(10)->create();
     }
+
+
 }

@@ -26,34 +26,28 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_active')->default(false);
             $table->integer('stock')->default(0);
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
-
+        /* هذا في حالة الموقع ضخم وفيه منتجات متداخله MANY TO MANY  وهذا موقع بسيط لذلك استخدمت foreign key مباشرة في جدول المنتجات        
+        
         Schema::create('product_categories', function (Blueprint $table) {
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->primary(['product_id', 'category_id']);
             $table->timestamps();
         });
+        */
 
-        Schema::create('product_images', function (Blueprint $table) {
-           $table->id();
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->string('image', 255);
-            $table->boolean('is_primary')->default(false);
-            $table->integer('sort_order')->default(0);
-            $table->timestamps();
-        });
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_categories');
-        Schema::dropIfExists('product_images');
+        //Schema::dropIfExists('product_categories');
         Schema::dropIfExists('products');
     }
 };
