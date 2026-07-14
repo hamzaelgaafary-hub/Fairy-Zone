@@ -33,3 +33,5 @@ User_adresses - Products - Categories - Product_categories <<in large sites like
 4- create Filament resources
 
 5- ceate lisetner and event and request for home page and other pages
+
+6- edit in blade files and filament Routes

@@ -14,11 +14,18 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('login', function () {
-    return view('auth.login');
+    return redirect('/app/login');
 })->name('login'); 
 Route::get('register', function () {
-    return view('auth.register');
+    return redirect('/app/register');
 })->name('register');
+
+Route::get('logout', function () {
+    return redirect('/app/logout');
+})->name('logout');
+
+
+//Route::get('/app',  [OrderController::class, 'checkout'])->name('user.dashboard');
 
 //Products Routes
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');

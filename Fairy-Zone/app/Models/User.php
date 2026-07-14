@@ -62,9 +62,15 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         
-        return $this->role === 'admin';
+       // التحقق من لوحة الإدارة
+        if ($panel->getId() === 'admin') {
+            return $this->role === 'admin'; // افترض وجود حقل role في قاعدة البيانات
+        }
 
-        // أو إذا كان لديك حقل في جدول المستخدمين اسمه is_admin:
-        // return $this->is_admin === true;
+        // التحقق من لوحة المستخدم
+        if ($panel->getId() === 'user') {
+            return $this->role === 'user';
+        }
+        return false;
     }
 }

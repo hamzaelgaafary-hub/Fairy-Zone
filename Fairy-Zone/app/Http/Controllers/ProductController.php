@@ -16,6 +16,7 @@ class ProductController extends Controller
      */
     public function index(ProductFilterRequest $request)
     {
+        //dd($request->validated());
         return view('products.index', [
             'products'   => Product::active()
                                    ->filter($request->validated())
@@ -24,6 +25,7 @@ class ProductController extends Controller
                                    ->withQueryString(),
             'categories' => Category::active()->get(),
         ]);
+        
     }
 
     /**
@@ -45,10 +47,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product) 
     {
+        //$product = Product::findOrFail($id);
         abort_if(!$product->is_active, 404);
 
+        //dd($product);
         return view('products.show', [
             'product' => $product->load(['images', 'category']),
         ]);
